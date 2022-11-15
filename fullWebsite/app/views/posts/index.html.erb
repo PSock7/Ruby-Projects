@@ -3,4 +3,7 @@
 <%= @posts.each do |post| %>
   <h2><%= post.name %></h2>
   <p><%= post.content %></p>
+  <p>
+    <a href="<%= post_path(post.id) %>" class="btn btn-primary">Lire la suite</a>
+  </p>
 <% end %>

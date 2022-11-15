@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   # we can give a name for a Path  : by using as
   get '/salut(/:name)', to:'pages#salut', as: 'salut'
   root to:'pages#home'
-  get '/articles', to:'posts#index', as:'posts'
+  resources :posts
   
 end
