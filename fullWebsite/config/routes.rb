@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'posts/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   #get '/salut/:name', to:'pages#salut'
   # we can give a name for a Path  : by using as
   get '/salut(/:name)', to:'pages#salut', as: 'salut'
-  root to:'pages#home' 
+  root to:'pages#home'
+  get '/articles', to:'posts#index', as:'posts'
   
 end
