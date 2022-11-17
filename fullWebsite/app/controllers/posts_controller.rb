@@ -14,9 +14,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def post_path(i)
-    # code here
-  end
 
   def create
     post = Post.create(post_params)
@@ -30,7 +27,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @posts.update(post_params)
+    @post.update(post_params)
     redirect_to posts_path
   end
   def destroy
