@@ -1,4 +1,4 @@
-<h1> Editer l'article</h1>
+<h1> Creer l'article</h1>
 
 <%= form_for @post do |f| %>
   <div class="form-group">
@@ -9,7 +9,8 @@
     <label>Contenu de l'article</label>
     <%= f.text_area :content, class: 'form-control' %>
   </div>
+  <br/>
   <div class="form-group">
-    <button type="submit" class="btn btn-primary">Modifier l'article</button>
+    <button type="submit" class="btn btn-primary">Creer l'article</button>
   </div>
 <%end %>

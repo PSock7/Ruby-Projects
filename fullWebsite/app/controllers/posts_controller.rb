@@ -9,9 +9,34 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
+
+  def new
+    @post = Post.new
+  end
+
+  def post_path(i)
+    # code here
+  end
+
+  def create
+    post = Post.create(post_params)
+    redirect_to posts_path(post.id)
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:name, :content)
+  end
+
   def update
     @post = Post.find(params[:id])
-    post_params = params.require(:post).permit(:name, content)
     @posts.update(post_params)
+    redirect_to posts_path
   end
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
+
 end
