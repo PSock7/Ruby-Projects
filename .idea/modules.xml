@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Ruby-Projects.iml" filepath="$PROJECT_DIR$/.idea/Ruby-Projects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fullWebsite.iml" filepath="$PROJECT_DIR$/.idea/modules/fullWebsite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple-project.iml" filepath="$PROJECT_DIR$/.idea/modules/simple-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/todo-list.iml" filepath="$PROJECT_DIR$/.idea/modules/todo-list.iml" />
     </modules>
   </component>
 </project>

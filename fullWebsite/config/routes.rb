@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :users
+  get 'categories/index'
+  get 'categories/show'
+  get 'categories/update'
+  get 'categories/destroy'
+  get 'categories/new'
   get 'posts/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,6 +17,7 @@ Rails.application.routes.draw do
   # we can give a name for a Path  : by using as
   get '/salut(/:name)', to:'pages#salut', as: 'salut'
   root to:'pages#home'
-  resources :posts , as:"post"
+  resources :posts
+  resources :categories
   
 end
