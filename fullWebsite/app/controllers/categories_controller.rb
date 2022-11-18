@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def index
+    @session = session[:user_id]
     @categories = Category.all
   end
 
@@ -33,5 +34,10 @@ class CategoriesController < ApplicationController
   private
   def category_params
     params.require(:category).permit(:name, :slug)
+  end
+  def around
+    puts "Verifie"
+    yield
+    puts "ok"
   end
 end
