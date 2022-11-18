@@ -9,6 +9,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
+        #Specific argu
+        #render json: @posts.as_json(only: [:content, :id])
         render json: @posts
       end
       format.xml { render xml:@posts}
