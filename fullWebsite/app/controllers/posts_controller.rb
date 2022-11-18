@@ -3,8 +3,16 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:update, :edit, :show, :destroy]
   skip_before_action :verify_authenticity_token
   def index
-    session[:user_id] = { username:"Pape", id: 3}
+    #session[:user_id] = { username: "Pape", id: 3}
+    #cookies.delete(:username)
     @posts = Post.all
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: @posts
+      end
+      format.xml { render xml:@posts}
+    end
   end
   def show
 
@@ -21,8 +29,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-    flash[:notice]="Article modifié avec succès"
-    redirect_to posts_path
+    redirect_to posts_path, success:  "Article modifié"
   end
   def new
     @post = Post.new
