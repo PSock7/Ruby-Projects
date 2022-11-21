@@ -13,25 +13,39 @@ class PostsController < ApplicationController
         #render json: @posts.as_json(only: [:content, :id])
         render json: @posts
       end
-      format.xml { render xml:@posts}
+      format.xml { render xml: @posts }
     end
   end
   def show
-
+    respond_to do |format|
+      format.html
+      format.json { render json: @post}
+    end
   end
   def edit
 
   end
 
   def create
-    post = Post.create(post_params)
-    redirect_to post_path(post.id)
+    post = Post.new(post_params)
+    if post.valid?
+      post.save
+    redirect_to post_path(post.id), success: "Article crée avec success"
+    else
+      @post = post
+      render 'new'
+    end
   end
 
 
   def update
-    @post.update(post_params)
-    redirect_to posts_path, success:  "Article modifié"
+    if @post.update(post_params)
+      redirect_to posts_path, success: "Article modifié"
+    else
+      render 'edit'
+    end
+
+
   end
   def new
     @post = Post.new
